@@ -7,6 +7,7 @@ class Question extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       question,
+      textAlign: TextAlign.center,
       style: const TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.bold,

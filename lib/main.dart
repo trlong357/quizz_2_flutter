@@ -68,10 +68,33 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+            appBarTheme: const AppBarTheme(
+              titleTextStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
+            brightness: Brightness.dark,
+            textTheme: const TextTheme(
+                headline3: TextStyle(color: Colors.red),
+                headline6: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+                headline4: TextStyle(
+                  color: Colors.white,
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                ),
+                headline5: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ))),
         home: Scaffold(
-          appBar: AppBar(title: const Text("Quizz app")),
+          appBar: AppBar(
+            title: const Text("Quizz app"),
+          ),
           body: _questionIndex < _quizzes.length
               ? Quizzes(
                   answerQuestionHandler: answerQuestion,

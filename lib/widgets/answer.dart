@@ -10,18 +10,17 @@ class Answer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+      height: 75,
       width: double.infinity,
       child: ElevatedButton(
         onPressed: selectHandler,
         style: ButtonStyle(
-          // backgroundColor: MaterialStateProperty.all(Colors.blueAccent),
-          overlayColor: MaterialStateProperty.resolveWith<Color?>(
-              (Set<MaterialState> states) {
-            if (states.contains(MaterialState.pressed)) return Colors.redAccent;
-            return null;
-          }),
+          backgroundColor: MaterialStateProperty.all(Colors.blueAccent),
         ),
-        child: Text(answer),
+        child: Text(
+          answer,
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
       ),
     );
   }

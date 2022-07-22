@@ -16,16 +16,26 @@ class Quizzes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          Question(questions[questionIndex]['question'] as String),
-          ...((questions[questionIndex]['answers'] as List).map((e) {
-            return Answer(e["answer"] as String,
-                () => answerQuestionHandler(e["correct"]));
-          }).toList())
-        ],
-      ),
+    return Column(
+      // mainAxisAlignment: MainAxisAlignment.center,
+      // crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 100),
+          child: Question(questions[questionIndex]['question'] as String),
+        ),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ...((questions[questionIndex]['answers'] as List).map((e) {
+                return Answer(e["answer"] as String,
+                    () => answerQuestionHandler(e["correct"]));
+              }).toList())
+            ],
+          ),
+        )
+      ],
     );
   }
 }
